@@ -9,6 +9,9 @@
 # testing
 /coverage
 
+# panda
+/styled-system/*
+
 # next.js
 /.next/
 /out/

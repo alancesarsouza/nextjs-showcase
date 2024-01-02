@@ -10,27 +10,49 @@ export default defineConfig({
 
   // The output directory for your css system
   outdir: 'styled-system',
+
   // Whether to use css reset
   preflight: true,
 
+  // temporary: change to false after define de theme
+  watch: true,
+
   // Useful for theme customization
   theme: {
-    tokens: {
-      colors: {
-        primary: { value: '#010137' },
-        secondary: { value: '#b010d2' },
-      },
-      radii: {
-        sm: { value: '0.25rem' },
-        md: { value: '0.5rem' },
-        lg: { value: '1.5rem' },
-      },
-      spacing: {
-        xs: { value: '0.5rem' }, // 8px
-        sm: { value: '0.75rem' }, // 12px
-        md: { value: '1rem' }, // 16px
-        lg: { value: '1.5rem' }, // 24px
-        xl: { value: '2rem' }, // 32px
+    tokens: {},
+    extend: {
+      tokens: {
+        sizes: {
+          full: { value: '100%' },
+          xs: { value: '8rem' }, // 128px
+          sm: { value: '10rem' }, // 160px
+          md: { value: '16rem' }, // 256px
+          lg: { value: '32rem' }, // 512px
+          xl: { value: '80rem' }, // 1280px
+        },
+        colors: {
+          primary: { value: '#010137' },
+          secondary: { value: '#b010d2' },
+          border: { value: '#b1b1c8' },
+          muted: { value: '#f0f1f8' },
+        },
+        radii: {
+          sm: { value: '0.25rem' },
+          md: { value: '0.5rem' },
+          lg: { value: '1.5rem' },
+        },
+        borders: {
+          sm: { value: 'solid 1px token(colors.border)' },
+          md: { value: 'solid 2px token(colors.border)' },
+          lg: { value: 'solid 4px token(colors.border)' },
+        },
+        spacing: {
+          xs: { value: '0.5rem' }, // 8px
+          sm: { value: '0.75rem' }, // 12px
+          md: { value: '1rem' }, // 16px
+          lg: { value: '1.5rem' }, // 24px
+          xl: { value: '2rem' }, // 32px
+        },
       },
     },
   },

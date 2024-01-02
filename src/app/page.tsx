@@ -1,21 +1,41 @@
-import styles from './page.module.css';
+import Link from 'next/link';
 
 import { css } from '@/styled/css';
 
+import { routes } from '@/utils';
+
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div
+    <main className={css({ maxW: 'xl', w: 'full' })}>
+      <ul
         className={css({
-          bg: 'gray',
-          fontSize: '5xl',
-          fontWeight: 'bold',
-          h: 'full',
-          my: 'auto',
+          bg: 'secondary',
+          borderRadius: {
+            base: 'none',
+            xl: 'md',
+          },
+          display: 'flex',
+          flexDir: 'column',
+          gap: 'sm',
+          p: 'lg',
         })}
       >
-        My Project Showcase 🐼!
-      </div>
+        <li>
+          <Link href={routes.chart()}>Gráficos</Link>
+        </li>
+        <li>
+          <Link href={routes.comments()}>Comentários</Link>
+        </li>
+        <li>
+          <Link href={routes.forms()}>Formulários</Link>
+        </li>
+        <li>
+          <Link href={routes.gallery()}>Galeria</Link>
+        </li>
+        <li>
+          <Link href={routes.map()}>Mapa</Link>
+        </li>
+      </ul>
     </main>
   );
 }
