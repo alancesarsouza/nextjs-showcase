@@ -10,10 +10,7 @@ export default function Home() {
       <ul
         className={css({
           bg: 'secondary',
-          borderRadius: {
-            base: 'none',
-            xl: 'md',
-          },
+          borderRadius: { base: 'none', xl: 'md' },
           display: 'flex',
           flexDir: 'column',
           gap: 'sm',
