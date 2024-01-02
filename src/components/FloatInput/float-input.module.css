@@ -1,0 +1,123 @@
+/* STATE: DEFAULT */
+/* Styling for the container */
+.container fieldset {
+  user-select: none;
+  position: relative;
+  margin: 0;
+  height: fit-content;
+  border-style: solid;
+  border-width: 0.0625rem;
+  border-radius: 0.5rem;
+  cursor: text;
+}
+
+/* Styling for label text */
+.container span.label {
+  bottom: calc(50% - 0.75rem);
+  left: 1rem;
+  max-width: 60%;
+  opacity: 0; /* Initially transparent */
+  overflow: hidden;
+  position: absolute;
+  transition: bottom 0.1s, left 0.1s, linear 0.2s; /* Smooth transitions */
+  white-space: nowrap;
+}
+
+/* Styling for legend text */
+.container legend.label {
+  background: transparent;
+  color: transparent;
+  display: none; /* Initially hidden */
+  height: 0;
+  margin-left: 0.75rem;
+  max-height: 0;
+  max-width: 70%;
+  overflow: hidden;
+  padding: 0 0.5rem;
+  transition: linear 0.2s;
+  width: 0;
+}
+
+/* Styling for input field */
+.container input {
+  cursor: inherit;
+  background: inherit;
+  border-radius: inherit;
+  border: none;
+  color: inherit;
+  padding: 0.75rem;
+  user-select: auto; /* Allow text selection */
+  width: 100%;
+}
+
+/* STATE: FILLED */
+/* Styling for label when input is filled */
+.container input:not(:placeholder-shown) ~ .label {
+  display: block;
+  opacity: 1;
+  cursor: pointer;
+  width: fit-content;
+  font-size: 0.75rem;
+}
+
+/* Styling for label position when input is filled */
+.container input:not(:placeholder-shown) + span.label {
+  height: fit-content;
+  bottom: calc(100% - 0.25rem);
+  left: 1.25rem;
+  opacity: 1;
+  position: absolute;
+  line-height: 100%;
+}
+
+/* STATE: FOCUS */
+/* Styling for label when input is focused */
+.container input:focus ~ .label {
+  display: block;
+  opacity: 1;
+  width: fit-content;
+  font-size: 0.75rem;
+}
+
+/* Styling for label position when input is focused */
+.container input:focus ~ span.label {
+  bottom: calc(100% - 0.25rem);
+  left: 1.25rem;
+  opacity: 1;
+  color: inherit;
+  position: absolute;
+  line-height: 100%;
+}
+
+.container input:disabled ~ .label {
+  display: block;
+  opacity: 1;
+  width: fit-content;
+  font-size: 0.75rem;
+  line-height: 100%;
+}
+
+.container input:disabled ~ span.label {
+  bottom: calc(100% - 0.25rem);
+  left: 1.25rem;
+  opacity: 1;
+  position: absolute;
+}
+
+/* Hidden placeholder style */
+/* Styling for hidden placeholder when input is focused */
+.container input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+.container input:focus:-moz-placeholder {
+  /* Firefox < 19 */
+  color: transparent;
+}
+.container input:focus::-moz-placeholder {
+  /* Firefox > 19 */
+  color: transparent;
+}
+.container input:focus:-ms-input-placeholder {
+  /* Internet Explorer 10 */
+  color: transparent;
+}
