@@ -1,3 +1,80 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "plugins": ["sort-exports", "sort-keys"],
+  "ignorePatterns": ["node_modules/*", ".next/*", "**.wip.*", "styled-system/*"],
+  "rules": {
+    "curly": "error",
+    "eqeqeq": ["error", "always"],
+    "function-paren-newline": ["error", "multiline"],
+    "import/no-anonymous-default-export": [
+      "error",
+      {
+        "allowArray": false,
+        "allowArrowFunction": false,
+        "allowAnonymousClass": false,
+        "allowAnonymousFunction": false,
+        "allowCallExpression": true,
+        "allowNew": false,
+        "allowLiteral": false,
+        "allowObject": true
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "alphabetize": { "caseInsensitive": false, "order": "asc" },
+        "pathGroups": [
+          { "pattern": "react", "group": "external", "position": "before" },
+          { "pattern": "/**", "group": "internal", "position": "before" },
+          { "pattern": "@/*", "group": "internal", "position": "after" }
+        ],
+        "newlines-between": "always",
+        "pathGroupsExcludedImportTypes": ["react"]
+      }
+    ],
+    "max-len": [
+      "error",
+      {
+        "code": 100,
+        "tabWidth": 2,
+        "ignoreUrls": true,
+        "ignoreComments": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
+      }
+    ],
+    "no-console": ["warn"],
+    "no-unneeded-ternary": "error",
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "react/jsx-sort-props": [
+      1,
+      {
+        "callbacksLast": true,
+        "multiline": "last",
+        "reservedFirst": true,
+        "shorthandFirst": true
+      }
+    ],
+    "react/self-closing-comp": ["error", { "component": true, "html": true }],
+    "sort-exports/sort-exports": ["error", { "sortDir": "asc" }],
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true /* must be true */,
+        "ignoreMemberSort": false,
+        "allowSeparatedGroups": true
+      }
+    ],
+    "sort-keys": 0, // disable default eslint sort-keys
+    "sort-keys/sort-keys-fix": 1 // works only with plugin
+  }
 }
