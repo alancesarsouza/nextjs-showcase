@@ -1,25 +1,43 @@
 'use client';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { PlusCircle, XCircle } from 'react-bootstrap-icons';
 import { useFieldArray, useForm } from 'react-hook-form';
+import * as yup from 'yup';
 
 import FloatInput from './FloatInput';
 
 import { css } from '@/styled/css';
 
 type InputsType = {
+  confirmation?: string;
+  dependents: Array<{ name: string; birthDate: string }>;
+  email: string;
   firstName: string;
   lastName: string;
-  email: string;
-  password: string;
-  confirmation: string;
-  dependents: Array<{
-    name: string;
-    birthDate: string;
-  }>;
-  street: string;
   number: number;
+  password: string;
   postalCode: string;
+  street: string;
 };
+
+const getSchema = () =>
+  yup.object().shape({
+    confirmation: yup.string().oneOf([yup.ref('password')], 'feedback.fieldFail'),
+    dependents: yup
+      .array()
+      .of(yup.object().shape({
+          birthDate: yup.string().required('feedback.fieldFail'),
+          name: yup.string().required('feedback.fieldFail'),
+        }))
+      .required('Required'),
+    email: yup.string().required('feedback.fieldFail'),
+    firstName: yup.string().required('feedback.fieldFail'),
+    lastName: yup.string().required('feedback.fieldFail'),
+    number: yup.number().required('feedback.fieldFail'),
+    password: yup.string().required('feedback.fieldFail'),
+    postalCode: yup.string().required('feedback.fieldFail'),
+    street: yup.string().required('feedback.fieldFail'),
+  });
 
 const dependent: InputsType['dependents'][number] = { birthDate: '', name: '' };
 
@@ -28,15 +46,17 @@ function ExampleForm() {
     control,
     register,
     handleSubmit,
-    // formState: { errors },
+    formState: { errors },
   } = useForm<InputsType>({
     defaultValues: { dependents: [dependent] },
+    resolver: yupResolver(getSchema()),
   });
 
   const { fields, append, remove } = useFieldArray({
     control,
     name: 'dependents',
   });
+  console.log(errors);
 
   return (
     <div>
@@ -88,7 +108,7 @@ function ExampleForm() {
             <FloatInput label="Street" {...register('street')} />
           </div>
           <div className={css({ w: { base: 'full', xl: 'sm' } })}>
-            <FloatInput label="Number" {...register('number')} />
+            <FloatInput label="Number" type="number" {...register('number')} />
           </div>
           <div className={css({ w: { base: 'full', xl: 'sm' } })}>
             <FloatInput label="Postal Code" {...register('postalCode')} />
@@ -120,11 +140,12 @@ function ExampleForm() {
 
               <button
                 aria-label="Remove item"
+                disabled={fields.length <= 1}
                 role="button"
                 className={css({
                   _hover: { color: 'border' },
-                  color: 'primary',
-                  cursor: 'pointer',
+                  color: fields.length <= 1 ? 'disabled' : 'primary',
+                  cursor: fields.length <= 1 ? 'not-allowed' : 'pointer',
                   transition: 'ease-in-out',
                 })}
                 onClick={() => remove(dependentIndex)}

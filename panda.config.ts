@@ -35,6 +35,7 @@ export default defineConfig({
           primary: { value: '#010137' },
           secondary: { value: '#b010d2' },
           border: { value: '#b1b1c8' },
+          disabled: { value: '#d1d1d1' },
           muted: { value: '#f0f1f8' },
         },
         radii: {
