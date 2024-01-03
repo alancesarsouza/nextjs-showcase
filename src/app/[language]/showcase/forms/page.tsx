@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import ExampleForm from '@/components/ExampleForm';
 import { css } from '@/styled/css';
 
-import { PageWithLanguageProps, useDictionary } from '@/dictionaries';
+import { fetchDictionary, PageWithLanguageProps } from '@/dictionaries';
 
 export const metadata: Metadata = {
   description: 'Showcase front-end page', // todo: create a description
@@ -11,12 +11,11 @@ export const metadata: Metadata = {
 };
 
 export default async function Page<T extends PageWithLanguageProps>(props: T) {
-  const translation = await useDictionary(props);
-  console.log(translation);
+  const translation = await fetchDictionary(props);
 
   return (
     <div className={css({ p: 'lg', w: 'full' })}>
-      <p>{translation.products.cart}</p>
+      <p>{translation.a.b.c}</p>
       <ExampleForm />
     </div>
   );

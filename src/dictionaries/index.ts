@@ -19,12 +19,12 @@ export type PageWithLanguageProps = PropsWithChildren & {
   params: { language: Languages };
 };
 
-export const getDictionary = async (locale: Languages) => dictionaries[locale]();
-
-export async function useDictionary<T extends PageWithLanguageProps>({ params }: T) {
+export async function fetchDictionary<T extends PageWithLanguageProps>({ params }: T) {
   const { language } = params || {};
 
   const lang = language in dictionaries ? language : defaultLocale;
 
   return await dictionaries[lang as Languages]();
 }
+
+export const getDictionary = async (locale: Languages) => dictionaries[locale]();

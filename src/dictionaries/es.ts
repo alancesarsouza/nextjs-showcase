@@ -1,7 +1,11 @@
-const es = {
-  products: {
-    cart: 'Add to Cart',
+import { DictionaryShape } from './pt-BR';
+
+const es: DictionaryShape = {
+  a: {
+    b: {
+      c: '',
+    },
   },
-} as const;
+};
 
 export default es;

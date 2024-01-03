@@ -1,8 +1,11 @@
+import { DictionaryShape } from './pt-BR';
 
-const en = {
-  products: {
-    cart: 'asdf',
+const en: DictionaryShape = {
+  a: {
+    b: {
+      c: '',
+    },
   },
-} as const;
+};
 
 export default en;
