@@ -24,7 +24,9 @@ export default defineConfig({
       tokens: {
         sizes: {
           full: { value: '100%' },
-          icon: { value: '1.25rem' }, // 20px
+          addon: { value: '1rem' }, // 16px
+          icon: { value: '1.5rem' }, // 24px
+          '2xs': { value: '4rem' }, // 64px
           xs: { value: '8rem' }, // 128px
           sm: { value: '10rem' }, // 160px
           md: { value: '16rem' }, // 256px

@@ -1,1 +1,1 @@
-export * from './ExampleForm';
+export * from '../containers/ExampleForm';

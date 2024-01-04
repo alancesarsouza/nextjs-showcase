@@ -9,7 +9,7 @@ export default function Home() {
     <main className={css({ maxW: 'xl', w: 'full' })}>
       <ul
         className={css({
-          bg: 'secondary',
+          bg: 'border',
           borderRadius: { base: 'none', xl: 'md' },
           display: 'flex',
           flexDir: 'column',

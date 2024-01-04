@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
 
-import ExampleForm from '@/components/ExampleForm';
 import { PageWithLanguageProps } from '@/dictionaries/types';
 import { css } from '@/styled/css';
 
+import { ExampleForm } from '@/containers';
 import { fetchDictionary } from '@/dictionaries';
 
 export const metadata: Metadata = {

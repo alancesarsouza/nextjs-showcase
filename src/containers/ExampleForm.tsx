@@ -4,8 +4,8 @@ import { PlusCircle, X } from 'react-bootstrap-icons';
 import { useFieldArray, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
-import { Button } from './Button';
-import FloatInput from './FloatInput';
+import { Button } from '../components/Button';
+import FloatInput from '../components/FloatInput';
 
 import { DictionaryShape } from '@/dictionaries/types';
 import useDictionary from '@/hooks/useDictionary';
@@ -150,7 +150,7 @@ function ExampleForm() {
               <Button
                 isOutLine
                 disabled={fields.length <= 1}
-                rightElement={<X className={css({ h: 'icon', w: 'icon' })} />}
+                rightElement={<X className={css({ h: 'addon', w: 'addon' })} />}
                 onClick={() => remove(dependentIndex)}
               />
             </li>
@@ -166,7 +166,7 @@ function ExampleForm() {
             <Button
               isOutLine
               disabled={fields.length > 4}
-              rightElement={<PlusCircle className={css({ h: 'icon', w: 'icon' })} />}
+              rightElement={<PlusCircle className={css({ h: 'addon', w: 'addon' })} />}
               onClick={() => append(dependent)}
             >
               {cta?.add}
@@ -174,7 +174,23 @@ function ExampleForm() {
           </li>
         </ul>
 
-        <Button type="submit">{cta?.send}</Button>
+        <div
+          className={css({
+            display: 'flex',
+            justifyContent: 'flex-end',
+            mt: 'lg',
+            w: 'full',
+          })}
+        >
+          <Button
+            type="submit"
+            className={css({
+              w: 'full',
+            })}
+          >
+            {cta?.send}
+          </Button>
+        </div>
       </form>
     </div>
   );
