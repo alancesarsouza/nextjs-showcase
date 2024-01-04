@@ -33,7 +33,9 @@ export default defineConfig({
         },
         colors: {
           primary: { value: '#010137' },
-          secondary: { value: '#b010d2' },
+          hover: { value: '#2f2f89' },
+          brand: { value: '#b010d2' },
+          secondary: { value: '#ffffff' },
           border: { value: '#b1b1c8' },
           disabled: { value: '#d1d1d1' },
           muted: { value: '#f0f1f8' },

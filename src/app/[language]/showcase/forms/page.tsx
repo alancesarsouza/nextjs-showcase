@@ -1,9 +1,10 @@
 import { Metadata } from 'next';
 
 import ExampleForm from '@/components/ExampleForm';
+import { PageWithLanguageProps } from '@/dictionaries/types';
 import { css } from '@/styled/css';
 
-import { fetchDictionary, PageWithLanguageProps } from '@/dictionaries';
+import { fetchDictionary } from '@/dictionaries';
 
 export const metadata: Metadata = {
   description: 'Showcase front-end page', // todo: create a description
@@ -11,11 +12,10 @@ export const metadata: Metadata = {
 };
 
 export default async function Page<T extends PageWithLanguageProps>(props: T) {
-  const translation = await fetchDictionary(props);
+  const {} = await fetchDictionary(props);
 
   return (
     <div className={css({ p: 'lg', w: 'full' })}>
-      <p>{translation.a.b.c}</p>
       <ExampleForm />
     </div>
   );
