@@ -21,7 +21,12 @@ function FloatInput(
   const legendText = label || placeholder;
 
   return (
-    <div className={css({ color: 'primary' })}>
+    <div
+      className={css({
+        '& input': { color: 'text' },
+        color: { _dark: 'muted', base: 'hover' },
+      })}
+    >
       <label className={styles.container} htmlFor={identifier}>
         <fieldset className={css({ border: 'sm' })}>
           <input

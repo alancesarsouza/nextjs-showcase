@@ -1,0 +1,38 @@
+div.container button:hover > span {
+  left: calc(100% + 0.5rem);
+}
+
+div.container button:hover {
+  filter: drop-shadow(0 5px 5px #000a);
+  border: 1px solid #fff;
+}
+
+.container button {
+  user-select: none;
+  overflow: hidden;
+  position: relative;
+  transition: filter 180ms, border 200ms;
+  filter: drop-shadow(0 4px 4px #000a);
+  border: 1px solid #fff8;
+}
+
+.container span {
+  transform: rotate(20deg);
+  transition: left 260ms;
+  left: -1.5rem;
+  top: -0.5rem;
+  opacity: 0.2;
+  background: white;
+  width: 20px;
+  height: calc(100% + 1rem);
+  position: absolute;
+}
+
+.container span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}

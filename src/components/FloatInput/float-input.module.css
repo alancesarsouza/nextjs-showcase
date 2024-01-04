@@ -41,7 +41,6 @@
 
 /* Styling for input field */
 .container input {
-  outline: none;
   cursor: inherit;
   background: inherit;
   border-radius: inherit;

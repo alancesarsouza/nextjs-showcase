@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Rubik } from 'next/font/google';
 
 import '@/app/globals.css';
-import { css } from '@/styled/css';
+import { css, cx } from '@/styled/css';
 
 import { Header } from '@/containers';
 
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html className={css({ bg: 'muted', h: '100vh' })} lang="en">
-      <body className={rubik.className}>
+    <html className={css({ h: '100vh' })} data-color-mode="dark" lang="en">
+      <body className={cx(rubik.className, css({ bg: { _dark: 'darkBg', base: 'white' } }))}>
         <Header />
 
         {children}

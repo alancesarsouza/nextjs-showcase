@@ -4,7 +4,10 @@ import { defineConfig } from '@pandacss/dev';
 export default defineConfig({
   // Files to exclude
   exclude: [],
-
+  conditions: {
+    light: '[data-color-mode=light] &',
+    dark: '[data-color-mode=dark] &',
+  },
   // Where to look for your css declarations
   include: ['./src/**/*.{js,jsx,ts,tsx}', './pages/**/*.{js,jsx,ts,tsx}'],
 
@@ -20,6 +23,13 @@ export default defineConfig({
   // Useful for theme customization
   theme: {
     tokens: {},
+    semanticTokens: {
+      colors: {
+        text: {
+          value: { base: 'primary', _dark: 'white' },
+        },
+      },
+    },
     extend: {
       tokens: {
         sizes: {
@@ -34,13 +44,21 @@ export default defineConfig({
           xl: { value: '80rem' }, // 1280px
         },
         colors: {
+          darkButton: { value: 'rgba(47, 47, 137, 0.2)' },
+          lightButton: { value: 'rgba(47, 47, 137, 0.9)' },
+          gray: { value: '#40404f' },
           primary: { value: '#010137' },
           hover: { value: '#2f2f89' },
           brand: { value: '#b010d2' },
-          secondary: { value: '#ffffff' },
+          secondary: { value: '#f1f1f1' },
           border: { value: '#b1b1c8' },
-          disabled: { value: '#d1d1d1' },
-          muted: { value: '#f0f1f8' },
+          disabled: { value: '#818181' },
+          muted: { value: '#d0d1f8' },
+          darkBg: {
+            value:
+              'linear-gradient(45deg, rgba(20,20,42,1) 0%, rgba(20,20,34,1) 45%, rgba(11,11,22,1) 100%)',
+          },
+          cloud: { value: '#fff2' },
         },
         radii: {
           sm: { value: '0.25rem' },
@@ -53,6 +71,7 @@ export default defineConfig({
           lg: { value: 'solid 4px token(colors.border)' },
         },
         spacing: {
+          '2xs': { value: '0.25rem' }, // 4px
           xs: { value: '0.5rem' }, // 8px
           sm: { value: '0.75rem' }, // 12px
           md: { value: '1rem' }, // 16px

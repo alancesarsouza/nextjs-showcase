@@ -2,7 +2,8 @@
 import { useParams, usePathname, useRouter } from 'next/navigation';
 import { ArrowLeft } from 'react-bootstrap-icons';
 
-import { Button } from '@/components/Button';
+import { IconButton } from './IconButton';
+
 import { css } from '@/styled/css';
 
 export default function GoBackButton() {
@@ -17,11 +18,9 @@ export default function GoBackButton() {
 
   return (
     <div>
-      <Button
-        isGhost
-        rightElement={<ArrowLeft className={css({ h: 'icon', w: 'icon' })} />}
-        onClick={back}
-      />
+      <IconButton label="Go back" onClick={back}>
+        <ArrowLeft className={css({ h: 'icon', w: 'icon' })} />
+      </IconButton>
     </div>
   );
 }

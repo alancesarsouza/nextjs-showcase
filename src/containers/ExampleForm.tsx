@@ -1,12 +1,13 @@
 'use client';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { PlusCircle, X } from 'react-bootstrap-icons';
+import { PlusCircle, XCircle } from 'react-bootstrap-icons';
 import { useFieldArray, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
 import { Button } from '../components/Button';
 import FloatInput from '../components/FloatInput';
 
+import { IconButton } from '@/components/IconButton';
 import { DictionaryShape } from '@/dictionaries/types';
 import useDictionary from '@/hooks/useDictionary';
 import { css } from '@/styled/css';
@@ -107,7 +108,9 @@ function ExampleForm() {
           />
         </div>
 
-        <h4 className={css({ fontWeight: 'semibold', mt: 'sm' })}>{text?.address}</h4>
+        <h4 className={css({ color: 'text', fontWeight: 'semibold', mt: 'sm' })}>
+          {text?.address}
+        </h4>
         <div
           className={css({ display: 'flex', flexWrap: { base: 'wrap', xl: 'nowrap' }, gap: 'sm' })}
         >
@@ -122,7 +125,9 @@ function ExampleForm() {
           </div>
         </div>
 
-        <h4 className={css({ fontWeight: 'semibold', mt: 'sm' })}>{text?.dependents}</h4>
+        <h4 className={css({ color: 'text', fontWeight: 'semibold', mt: 'sm' })}>
+          {text?.dependents}
+        </h4>
         <ul className={css({ display: 'flex', flexDir: 'column', gap: 'md' })}>
           {fields.map((field, dependentIndex) => (
             <li
@@ -147,12 +152,13 @@ function ExampleForm() {
                 />
               </div>
 
-              <Button
-                isOutLine
+              <IconButton
                 disabled={fields.length <= 1}
-                rightElement={<X className={css({ h: 'addon', w: 'addon' })} />}
+                label="remove item"
                 onClick={() => remove(dependentIndex)}
-              />
+              >
+                <XCircle className={css({ h: 'icon', w: 'icon' })} />
+              </IconButton>
             </li>
           ))}
 
@@ -182,12 +188,7 @@ function ExampleForm() {
             w: 'full',
           })}
         >
-          <Button
-            type="submit"
-            className={css({
-              w: 'full',
-            })}
-          >
+          <Button className={css({ w: 'full' })} type="submit">
             {cta?.send}
           </Button>
         </div>
