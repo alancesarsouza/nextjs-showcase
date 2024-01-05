@@ -4,12 +4,7 @@ import { type NextRequest, NextResponse } from 'next/server';
 import { getMatchLocale, locales } from './utils/locale';
 
 export const config = {
-  matcher: [
-    // Skip all internal paths (_next)
-    '/((?!_next).*)',
-    // Optional: only run on root (/) URL
-    // '/'
-  ],
+  matcher: ['/((?!_next).*)'],
 };
 
 export function middleware(request: NextRequest) {

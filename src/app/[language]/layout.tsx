@@ -1,7 +1,8 @@
+import '@/app/globals.css';
+
 import type { Metadata } from 'next';
 import { Rubik } from 'next/font/google';
 
-import '@/app/globals.css';
 import { css, cx } from '@/styled/css';
 
 import { Header } from '@/containers';

@@ -1,4 +1,7 @@
+import Link from 'next/link';
+
 import GoBackButton from '@/components/GoBackButton';
+import LanguageSelector from '@/components/LanguageSelector';
 import { css } from '@/styled/css';
 
 export default function Header() {
@@ -16,18 +19,43 @@ export default function Header() {
         w: 'full',
       })}
     >
-      <GoBackButton />
-
-      <h1
+      <div
         className={css({
-          fontSize: '1.5rem',
-          fontWeight: 'semibold',
-          lineHeight: '120%',
-          userSelect: 'none',
+          alignItems: 'center',
+          display: 'flex',
+          gap: 'sm',
+          w: 'fit-content',
         })}
       >
-        Alan Souza
-      </h1>
+        <GoBackButton />
+        <Link href="/">
+          <i>(Logo)</i>
+        </Link>
+      </div>
+
+      <div
+        className={css({
+          alignItems: 'center',
+          display: 'flex',
+          gap: 'md',
+          w: 'fit-content',
+        })}
+      >
+        <h2
+          className={css({
+            color: 'text',
+            fontSize: '1.5rem',
+            fontWeight: 'semibold',
+            lineHeight: '120%',
+            ml: 'auto',
+            userSelect: 'none',
+          })}
+        >
+          Alan Souza
+        </h2>
+        <i>(DM)</i>
+        <LanguageSelector />
+      </div>
     </div>
   );
 }

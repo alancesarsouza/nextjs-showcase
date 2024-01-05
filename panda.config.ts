@@ -49,7 +49,7 @@ export default defineConfig({
           gray: { value: '#40404f' },
           primary: { value: '#010137' },
           hover: { value: '#2f2f89' },
-          brand: { value: '#b010d2' },
+          brand: { value: 'rgba(176, 16, 210, 0.3)'  },
           secondary: { value: '#f1f1f1' },
           border: { value: '#b1b1c8' },
           disabled: { value: '#818181' },
