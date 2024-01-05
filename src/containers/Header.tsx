@@ -22,7 +22,6 @@ export default function Header() {
           gap: 'sm',
           h: '2xs',
           justifyContent: 'space-between',
-          px: 'responsive',
           py: 'md',
           transition: 'all 200ms',
           w: 'full',

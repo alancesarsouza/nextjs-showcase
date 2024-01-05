@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const theme = cookies().get(themeKey);
 
   return (
-    <html className={css({ h: '100vh' })} data-color-mode={theme?.value || 'light'} lang="en">
+    <html data-color-mode={theme?.value || 'light'} lang="en">
       <body className={cx(rubik.className, css({ bg: { _dark: 'darkBg', base: 'white' } }))}>
         <Header />
 

@@ -24,17 +24,6 @@ export default defineConfig({
   theme: {
     tokens: {},
     semanticTokens: {
-      spacing: {
-        responsive: {
-          value: {
-            base: '2xs',
-            sm: 'xs',
-            md: 'sm',
-            '2xl': 'xl',
-            '3xl': '5%',
-          },
-        },
-      },
       colors: {
         text: {
           value: { base: 'primary', _dark: 'white' },

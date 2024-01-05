@@ -34,9 +34,9 @@ const responsive = cva({
         w: 'full',
         py: 'lg',
         px: {
-          base: '2xs',
-          sm: 'xs',
-          md: 'sm',
+          base: 'sm',
+          sm: 'md',
+          md: 'lg',
           '2xl': 'xl',
           '3xl': '5%',
         },
