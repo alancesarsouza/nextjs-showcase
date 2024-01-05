@@ -1,4 +1,5 @@
 /* eslint-disable sort-keys/sort-keys-fix */
+
 import { cva } from '@/styled/css';
 
 const highlight = cva({
@@ -32,7 +33,13 @@ const responsive = cva({
       layout: {
         w: 'full',
         py: 'lg',
-        px: 'responsive',
+        px: {
+          base: '2xs',
+          sm: 'xs',
+          md: 'sm',
+          '2xl': 'xl',
+          '3xl': '5%',
+        },
         mx: 'auto',
       },
     },

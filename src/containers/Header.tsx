@@ -13,18 +13,21 @@ import recipes from '@/recipes';
 export default function Header() {
   return (
     <div
-      className={css({
-        alignItems: 'center',
-        bg: 'brand',
-        display: 'flex',
-        gap: 'sm',
-        h: '2xs',
-        justifyContent: 'space-between',
-        px: 'responsive',
-        py: 'md',
-        transition: 'all 200ms',
-        w: 'full',
-      })}
+      className={cx(
+        recipes.responsive({ type: 'layout' }),
+        css({
+          alignItems: 'center',
+          bg: 'brand',
+          display: 'flex',
+          gap: 'sm',
+          h: '2xs',
+          justifyContent: 'space-between',
+          px: 'responsive',
+          py: 'md',
+          transition: 'all 200ms',
+          w: 'full',
+        })
+      )}
     >
       <div
         className={css({
