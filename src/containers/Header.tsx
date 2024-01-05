@@ -17,7 +17,10 @@ export default function Header() {
         recipes.responsive({ type: 'layout' }),
         css({
           alignItems: 'center',
-          bg: 'brand',
+          bg: 'header',
+          borderBottom: 'sm',
+          borderColor: 'gray',
+          boxShadow: '0 2px 4px 1px #0008',
           display: 'flex',
           gap: 'sm',
           h: '2xs',

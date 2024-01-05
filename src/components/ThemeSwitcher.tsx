@@ -21,8 +21,25 @@ export const ThemeSwitcher = () => {
   };
 
   return (
-    <IconButton label="change color theme mode" onClick={toggleTheme}>
+    <IconButton
+      label="change color theme mode"
+      className={css({
+        '& svg': {
+          transition: 'color 400ms',
+        },
+        _hover: {
+          '& svg#moon': {
+            color: '#0066ff88',
+          },
+          '& svg#sun': {
+            color: '#ffaa0088',
+          },
+        },
+      })}
+      onClick={toggleTheme}
+    >
       <MoonFill
+        id="moon"
         className={css({
           _dark: { display: 'none' },
           base: { display: 'block' },
@@ -31,6 +48,7 @@ export const ThemeSwitcher = () => {
         })}
       />
       <SunFill
+        id="sun"
         className={css({
           _dark: { display: 'block' },
           base: { display: 'none' },

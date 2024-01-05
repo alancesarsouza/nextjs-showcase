@@ -25,6 +25,9 @@ export default defineConfig({
     tokens: {},
     semanticTokens: {
       colors: {
+        header: {
+          value: { _dark: '#59175170', base: '#01013780' },
+        },
         text: {
           value: { base: 'primary', _dark: 'white' },
         },
