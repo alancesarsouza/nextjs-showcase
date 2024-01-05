@@ -1,4 +1,7 @@
+import Image from 'next/image';
 import Link from 'next/link';
+
+import logo from '../../public/assets/logo.webp';
 
 import GoBackButton from '@/components/GoBackButton';
 import LanguageSelector from '@/components/LanguageSelector';
@@ -11,6 +14,7 @@ export default function Header() {
         alignItems: 'center',
         bg: 'brand',
         display: 'flex',
+        gap: 'sm',
         h: '2xs',
         justifyContent: 'space-between',
         px: 'xl',
@@ -29,7 +33,13 @@ export default function Header() {
       >
         <GoBackButton />
         <Link href="/">
-          <i>(Logo)</i>
+          <Image
+            alt="site logo - Alan Souza"
+            className={css({ h: '2rem', w: '2rem' })}
+            height={32}
+            src={logo}
+            width={32}
+          />
         </Link>
       </div>
 
