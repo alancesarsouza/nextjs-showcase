@@ -5,3 +5,5 @@ export const routes = {
   gallery: (path?: string) => `/showcase/gallery${path ?? ''}`,
   map: (path?: string) => `/showcase/map${path ?? ''}`,
 };
+
+export const themeKey = 'data-color-mode';

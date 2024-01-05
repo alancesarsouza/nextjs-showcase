@@ -5,6 +5,7 @@ import logo from '../../public/assets/logo.webp';
 
 import GoBackButton from '@/components/GoBackButton';
 import LanguageSelector from '@/components/LanguageSelector';
+import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 import { css, cx } from '@/styled/css';
 
 import recipes from '@/recipes';
@@ -71,7 +72,7 @@ export default function Header() {
           Alan Souza
         </h2>
 
-        <i>(DM)</i>
+        <ThemeSwitcher />
 
         <LanguageSelector />
       </div>
