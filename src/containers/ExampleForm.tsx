@@ -108,9 +108,7 @@ function ExampleForm() {
           />
         </div>
 
-        <h4 className={css({ color: 'text', fontWeight: 'semibold', mt: 'sm' })}>
-          {text?.address}
-        </h4>
+        <h4 className={css({ fontWeight: 'semibold', mt: 'sm' })}>{text?.address}</h4>
         <div
           className={css({ display: 'flex', flexWrap: { base: 'wrap', xl: 'nowrap' }, gap: 'sm' })}
         >
@@ -125,9 +123,7 @@ function ExampleForm() {
           </div>
         </div>
 
-        <h4 className={css({ color: 'text', fontWeight: 'semibold', mt: 'sm' })}>
-          {text?.dependents}
-        </h4>
+        <h4 className={css({ fontWeight: 'semibold', mt: 'sm' })}>{text?.dependents}</h4>
         <ul className={css({ display: 'flex', flexDir: 'column', gap: 'md' })}>
           {fields.map((field, dependentIndex) => (
             <li

@@ -1,22 +1,12 @@
 import Link from 'next/link';
 
-import { css } from '@/styled/css';
-
+import recipes from '@/recipes';
 import { routes } from '@/utils';
 
 export default function Home() {
   return (
     <main>
-      <ul
-        className={css({
-          bg: 'border',
-          borderRadius: { base: 'none', xl: 'md' },
-          display: 'flex',
-          flexDir: 'column',
-          gap: 'sm',
-          p: 'lg',
-        })}
-      >
+      <ul className={recipes.glassCard({ type: 'card' })}>
         <li>
           <Link href={routes.chart()}>Gráficos</Link>
         </li>

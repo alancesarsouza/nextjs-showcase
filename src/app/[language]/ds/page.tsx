@@ -13,7 +13,7 @@ export default function AppDs() {
     <main>
       <div
         className={css({
-          bg: { _dark: 'darkBg', base: 'white' },
+          bg: 'baseBg',
           display: 'flex',
           flexDir: { base: 'column', xl: 'row' },
           h: 'full',

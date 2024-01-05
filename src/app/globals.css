@@ -23,3 +23,30 @@ body {
 
   font-size: clamp(16px, 0.833vw, 24px);
 }
+
+p,
+span,
+li {
+  font-size: 0.75rem; /* 12px */
+}
+
+h6 {
+  font-size: 0.875rem; /* 14px */
+}
+h5,
+a,
+button {
+  font-size: 1rem; /* 16px */
+}
+h4 {
+  font-size: 1.125rem; /* 18px */
+}
+h3 {
+  font-size: 1.25rem; /* 20px */
+}
+h2 {
+  font-size: 1.376rem; /* 22px */
+}
+h1 {
+  font-size: 1.5rem; /* 24px */
+}

@@ -75,11 +75,7 @@ export default function LanguageSelector() {
                     src={src}
                     width={32}
                   />
-                  <p
-                    className={css({ color: 'text', textOverflow: 'hidden', whiteSpace: 'nowrap' })}
-                  >
-                    {lang}
-                  </p>
+                  <p className={css({ textOverflow: 'hidden', whiteSpace: 'nowrap' })}>{lang}</p>
                 </Link>
               </li>
             ))}

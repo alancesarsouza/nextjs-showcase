@@ -65,11 +65,8 @@ export default function Header() {
       >
         <h2
           className={css({
-            color: 'text',
             display: { base: 'none', md: 'block' },
-            fontSize: '1.5rem',
             fontWeight: 'semibold',
-            lineHeight: '120%',
             ml: 'auto',
             userSelect: 'none',
           })}

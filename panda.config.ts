@@ -25,6 +25,19 @@ export default defineConfig({
     tokens: {},
     semanticTokens: {
       colors: {
+        glass: {
+          value: {
+            base: '#aaa2',
+            _dark: '#6662',
+          },
+        },
+        baseBg: {
+          value: {
+            base: '#f1f1f1',
+            _dark:
+              'linear-gradient(45deg, rgba(20,20,42,1) 0%, rgba(20,20,34,1) 45%, rgba(11,11,22,1) 100%)',
+          },
+        },
         header: {
           value: { _dark: '#59175170', base: '#01013780' },
         },
@@ -60,11 +73,6 @@ export default defineConfig({
           border: { value: '#b1b1c8' },
           disabled: { value: '#818181' },
           muted: { value: '#d0d1f8' },
-          darkBg: {
-            value:
-              'linear-gradient(45deg, rgba(20,20,42,1) 0%, rgba(20,20,34,1) 45%, rgba(11,11,22,1) 100%)',
-          },
-          cloud: { value: '#fff2' },
         },
         radii: {
           sm: { value: '0.25rem' },

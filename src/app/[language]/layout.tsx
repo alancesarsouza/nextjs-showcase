@@ -22,7 +22,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html data-color-mode={theme?.value || 'light'} lang="en">
-      <body className={cx(rubik.className, css({ bg: { _dark: 'darkBg', base: 'white' } }))}>
+      <body
+        className={cx(
+          rubik.className,
+          css({
+            '& *': { color: 'text' },
+            bg: 'baseBg',
+          })
+        )}
+      >
         <Header />
 
         <div className={recipes.responsive({ type: 'layout' })}>{children}</div>

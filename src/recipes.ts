@@ -49,24 +49,30 @@ const responsive = cva({
 const glassCard = cva({
   base: {
     alignItems: 'center',
-    bg: 'cloud',
+    bg: 'glass',
     display: 'flex',
     flexDir: 'column',
     gap: 'sm',
     py: 'md',
     w: '200px',
     zIndex: 1,
+    backdropFilter: 'blur(2px)',
+    border: 'sm',
+    shadow: {
+      base: '1px 5px 5px #0004',
+      _dark: '1px 5px 5px #000',
+    },
   },
   variants: {
     type: {
+      card: {
+        w: 'full',
+        rounded: 'lg',
+      },
       dropdown: {
-        backdropFilter: 'blur(2px)',
-        background: 'cloud',
-        border: 'sm',
+        rounded: 'md',
         position: 'absolute',
         right: 'calc(100% + 0.5rem)',
-        rounded: 'md',
-        shadow: '0 5px 5px #000a',
         top: 'full',
       },
     },

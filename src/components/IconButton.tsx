@@ -7,7 +7,7 @@ import recipes from '@/recipes';
 export function IconButton({ label, disabled, className, ...props }: IconButtonProps) {
   const buttonCustomization = css({
     _active: {
-      bg: { _dark: 'cloud', base: 'cloud' },
+      bg: 'glass',
       color: { _dark: 'muted', base: 'hover' },
     },
     _disabled: {
