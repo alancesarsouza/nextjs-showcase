@@ -24,6 +24,17 @@ export default defineConfig({
   theme: {
     tokens: {},
     semanticTokens: {
+      spacing: {
+        responsive: {
+          value: {
+            base: '2xs',
+            sm: 'xs',
+            md: 'sm',
+            '2xl': 'xl',
+            '3xl': '5%',
+          },
+        },
+      },
       colors: {
         text: {
           value: { base: 'primary', _dark: 'white' },
@@ -31,6 +42,9 @@ export default defineConfig({
       },
     },
     extend: {
+      breakpoints: {
+        '3xl': '1920px',
+      },
       tokens: {
         sizes: {
           full: { value: '100%' },
@@ -49,7 +63,7 @@ export default defineConfig({
           gray: { value: '#40404f' },
           primary: { value: '#010137' },
           hover: { value: '#2f2f89' },
-          brand: { value: 'rgba(176, 16, 210, 0.3)'  },
+          brand: { value: 'rgba(176, 16, 210, 0.3)' },
           secondary: { value: '#f1f1f1' },
           border: { value: '#b1b1c8' },
           disabled: { value: '#818181' },

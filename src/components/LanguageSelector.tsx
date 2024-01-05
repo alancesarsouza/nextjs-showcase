@@ -10,36 +10,9 @@ import { IconButton } from './IconButton';
 
 import { flags } from '@/dictionaries/constants';
 import { LanguagesKeys } from '@/dictionaries/types';
-import { css, cva } from '@/styled/css';
+import { css } from '@/styled/css';
 
-const glassRecipe = cva({
-  base: {
-    alignItems: 'center',
-    bg: 'cloud',
-    display: 'flex',
-    flexDir: 'column',
-    gap: 'sm',
-    py: 'md',
-    w: '100px',
-    zIndex: 1,
-  },
-  variants: {
-    type: {
-      dropdown: {
-        backdropFilter: 'blur(2px)',
-        background: 'cloud',
-        border: 'sm',
-        position: 'absolute',
-        right: 'calc(100% + 0.5rem)',
-        rounded: 'md',
-        shadow: '0 5px 5px #000a',
-        top: 'full',
-      },
-      primary: { color: 'blue.300' },
-      tertiary: { color: 'green.300' },
-    },
-  },
-});
+import recipes from '@/recipes';
 
 export default function LanguageSelector() {
   const ref = useRef(null);
@@ -69,8 +42,8 @@ export default function LanguageSelector() {
         />
       </IconButton>
 
-      <div style={{ visibility: value ? 'visible' : 'hidden' }}>
-        <div ref={ref} className={glassRecipe({ type: 'dropdown' })}>
+      <div style={{ visibility: value ? 'visible' : 'hidden' }} onClick={setFalse}>
+        <div ref={ref} className={recipes.glassCard({ type: 'dropdown' })}>
           <ul
             className={css({
               display: 'flex',

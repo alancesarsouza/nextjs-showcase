@@ -6,7 +6,7 @@ import { routes } from '@/utils';
 
 export default function Home() {
   return (
-    <main className={css({ maxW: 'xl', w: 'full' })}>
+    <main>
       <ul
         className={css({
           bg: 'border',

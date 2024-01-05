@@ -6,6 +6,7 @@ import { Rubik } from 'next/font/google';
 import { css, cx } from '@/styled/css';
 
 import { Header } from '@/containers';
+import recipes from '@/recipes';
 
 const rubik = Rubik({ subsets: ['latin'] });
 
@@ -20,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={cx(rubik.className, css({ bg: { _dark: 'darkBg', base: 'white' } }))}>
         <Header />
 
-        {children}
+        <div className={recipes.responsive({ type: 'layout' })}>{children}</div>
       </body>
     </html>
   );

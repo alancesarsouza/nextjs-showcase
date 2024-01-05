@@ -2,6 +2,8 @@ import React, { ButtonHTMLAttributes } from 'react';
 
 import { css, cx } from '@/styled/css';
 
+import recipes from '@/recipes';
+
 export function IconButton({ label, disabled, className, ...props }: IconButtonProps) {
   const buttonCustomization = css({
     _active: {
@@ -11,25 +13,27 @@ export function IconButton({ label, disabled, className, ...props }: IconButtonP
     _disabled: {
       _hover: {
         color: 'disabled',
-        transform: 'scale(1)',
       },
       color: { _dark: 'border', base: 'disabled' },
       cursor: 'not-allowed',
     },
     _hover: {
       color: { _dark: 'muted', base: 'primary' },
-      transform: 'scale(1.1)',
     },
     color: { _dark: 'white', base: 'primary' },
     cursor: 'pointer',
     h: 'fit-content',
     p: '2xs',
     rounded: 'lg',
-    transition: 'background 200ms, transform 100ms',
+    transition: 'background 200ms',
     w: 'fit-content',
   });
 
-  const rootClassName = cx(buttonCustomization, className);
+  const rootClassName = cx(
+    recipes.highlight({ type: 'actionHover' }),
+    buttonCustomization,
+    className
+  );
 
   return (
     <button

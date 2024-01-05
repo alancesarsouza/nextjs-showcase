@@ -69,7 +69,7 @@ function ExampleForm() {
           display: 'flex',
           flexDir: 'column',
           gap: 'md',
-          p: 'lg',
+          py: 'lg',
           w: 'full',
         })}
         onSubmit={handleSubmit(() => null)}
