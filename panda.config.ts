@@ -25,11 +25,14 @@ export default defineConfig({
     tokens: {},
     semanticTokens: {
       colors: {
+        placeholder: {
+          value: { base: '#8888aa', _dark: '#b1b1c8' },
+        },
+        corner: {
+          value: { base: '#fffa', _dark: '#b1b1c8' },
+        },
         glass: {
-          value: {
-            base: '#aaa2',
-            _dark: '#6662',
-          },
+          value: { base: '#aaa1', _dark: '#6662' },
         },
         baseBg: {
           value: {
@@ -80,9 +83,9 @@ export default defineConfig({
           lg: { value: '1.5rem' },
         },
         borders: {
-          sm: { value: 'solid 1px token(colors.border)' },
-          md: { value: 'solid 2px token(colors.border)' },
-          lg: { value: 'solid 4px token(colors.border)' },
+          sm: { value: 'solid 1px token(colors.corner)' },
+          md: { value: 'solid 2px token(colors.corner)' },
+          lg: { value: 'solid 4px token(colors.corner)' },
         },
         spacing: {
           '2xs': { value: '0.25rem' }, // 4px

@@ -46,7 +46,7 @@
   border-radius: inherit;
   border: none;
   color: inherit;
-  padding: 0.5rem 0.75rem;
+  padding: 0.75rem;
   user-select: auto; /* Allow text selection */
   width: 100%;
 }

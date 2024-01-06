@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 
 import styles from './float-input.module.css';
 
-import { css } from '@/styled/css';
+import { css, cx } from '@/styled/css';
 
 type DynamicParamType =
   | { label: string; placeholder?: never }
@@ -23,12 +23,25 @@ function FloatInput(
   return (
     <div
       className={css({
-        '& input': { color: 'text' },
-        color: { _dark: 'muted', base: 'hover' },
+        '& label > fieldset > span': {
+          color: 'placeholder',
+        },
+        _focusWithin: {
+          '& fieldset': {
+            bg: 'transparent',
+            shadow: '0 4px 4px #0002',
+          },
+        },
       })}
     >
-      <label className={styles.container} htmlFor={identifier}>
-        <fieldset className={css({ border: 'sm' })}>
+      <label className={cx(styles.container, css({}))} htmlFor={identifier}>
+        <fieldset
+          className={css({
+            bg: { _dark: '#6661', base: '#ddd4' },
+            border: 'sm',
+            borderColor: 'corner',
+          })}
+        >
           <input
             ref={ref}
             data-cy={name}
@@ -37,6 +50,11 @@ function FloatInput(
             name={name}
             placeholder={!disabled ? legendText : ''}
             type="text"
+            className={css({
+              _placeholder: { color: 'placeholder' },
+              bg: { _dark: '#6661', base: '#ddd4' },
+              color: 'blue',
+            })}
             {...props}
           />
           <span className={styles.label}>{legendText}</span>

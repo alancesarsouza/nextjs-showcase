@@ -27,13 +27,9 @@ export const ThemeSwitcher = () => {
         '& svg': {
           transition: 'color 400ms',
         },
-        _hover: {
-          '& svg#moon': {
-            color: '#0066ff88',
-          },
-          '& svg#sun': {
-            color: '#ffaa0088',
-          },
+        _active: {
+          '& svg#moon': { fill: '#4455bb88' },
+          '& svg#sun': { fill: '#ffffaadd' },
         },
       })}
       onClick={toggleTheme}

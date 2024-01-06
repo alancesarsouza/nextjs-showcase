@@ -23,7 +23,7 @@ export function IconButton({ label, disabled, className, ...props }: IconButtonP
     color: { _dark: 'white', base: 'primary' },
     cursor: 'pointer',
     h: 'fit-content',
-    p: '2xs',
+    p: 'xs',
     rounded: 'lg',
     transition: 'background 200ms',
     w: 'fit-content',

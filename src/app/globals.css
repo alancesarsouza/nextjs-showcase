@@ -25,8 +25,7 @@ body {
 }
 
 p,
-span,
-li {
+span {
   font-size: 0.75rem; /* 12px */
 }
 

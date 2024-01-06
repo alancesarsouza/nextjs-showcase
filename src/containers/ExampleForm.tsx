@@ -128,13 +128,19 @@ function ExampleForm() {
           {fields.map((field, dependentIndex) => (
             <li
               key={field.id}
-              className={css({ alignItems: 'center', display: 'flex', gap: 'xs', w: 'full' })}
+              className={css({
+                alignItems: 'center',
+                display: 'flex',
+                gap: 'xs',
+                w: 'full',
+              })}
             >
               <div
                 className={css({
                   display: 'grid',
                   gap: 'sm',
                   gridTemplateColumns: { base: 1, md: 2 },
+                  h: 'full',
                   w: 'full',
                 })}
               >

@@ -53,6 +53,15 @@ export default function Header() {
             )}
           />
         </Link>
+
+        <h2
+          className={css({
+            display: { base: 'none', sm: 'block' },
+            fontWeight: 'semibold',
+          })}
+        >
+          Alan Souza
+        </h2>
       </div>
 
       <div
@@ -63,17 +72,6 @@ export default function Header() {
           w: 'fit-content',
         })}
       >
-        <h2
-          className={css({
-            display: { base: 'none', md: 'block' },
-            fontWeight: 'semibold',
-            ml: 'auto',
-            userSelect: 'none',
-          })}
-        >
-          Alan Souza
-        </h2>
-
         <ThemeSwitcher />
 
         <LanguageSelector />
