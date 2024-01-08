@@ -10,7 +10,7 @@ type DynamicParamType =
 
 export type InputFloatProps = DynamicParamType &
   Omit<React.InputHTMLAttributes<HTMLInputElement>, 'placeholder' | 'label' | 'size'> & {
-    error?: boolean;
+    error?: boolean | string;
   };
 
 function FloatInput(
@@ -28,8 +28,9 @@ function FloatInput(
         },
         _focusWithin: {
           '& fieldset': {
-            bg: 'transparent',
-            shadow: '0 4px 4px #0002',
+            bg: { _dark: '#ffffff0d', base: '#fff1' },
+            shadow: '0 4px 8px #0008',
+            transition: 'all 200ms',
           },
         },
       })}
@@ -40,6 +41,7 @@ function FloatInput(
             bg: { _dark: '#6661', base: '#ddd4' },
             border: 'sm',
             borderColor: 'corner',
+            shadow: '0 2px 4px #000b',
           })}
         >
           <input
@@ -52,8 +54,6 @@ function FloatInput(
             type="text"
             className={css({
               _placeholder: { color: 'placeholder' },
-              bg: { _dark: '#6661', base: '#ddd4' },
-              color: 'blue',
             })}
             {...props}
           />
@@ -61,7 +61,7 @@ function FloatInput(
           <legend className={styles.label}>{legendText}</legend>
         </fieldset>
 
-        <p>{error}</p>
+        <p className={css({ color: 'danger' })}>{error}</p>
       </label>
     </div>
   );

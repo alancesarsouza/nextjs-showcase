@@ -25,6 +25,9 @@ export default defineConfig({
     tokens: {},
     semanticTokens: {
       colors: {
+        danger: {
+          value: { _dark: '#ff8888', base: '#fa4444' },
+        },
         placeholder: {
           value: { base: '#8888aa', _dark: '#b1b1c8' },
         },

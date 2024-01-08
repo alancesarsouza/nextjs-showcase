@@ -34,7 +34,7 @@ const getSchema = ({ error }: Partial<Pick<DictionaryShape, 'error'>>) =>
           name: yup.string().required(error?.required),
         }))
       .required('Required'),
-    email: yup.string().required(error?.required),
+    email: yup.string().email(error?.email).required(error?.required),
     firstName: yup.string().required(error?.required),
     lastName: yup.string().required(error?.required),
     number: yup.number().required(error?.required),
@@ -51,9 +51,10 @@ function ExampleForm() {
     control,
     register,
     handleSubmit,
-    // formState: { errors },
+    formState: { errors },
   } = useForm<InputsType>({
     defaultValues: { dependents: [dependent] },
+    mode: 'onTouched',
     resolver: yupResolver(getSchema({ error })),
   });
   const { fields, append, remove } = useFieldArray({ control, name: 'dependents' });
@@ -69,7 +70,7 @@ function ExampleForm() {
           display: 'flex',
           flexDir: 'column',
           gap: 'md',
-          py: 'lg',
+          py: 'xl',
           w: 'full',
         })}
         onSubmit={handleSubmit(() => null)}
@@ -81,8 +82,16 @@ function ExampleForm() {
             gridTemplateColumns: { base: 1, md: 2 },
           })}
         >
-          <FloatInput label={labels?.firstName || ''} {...register('firstName')} />
-          <FloatInput label={labels?.lastName || ''} {...register('lastName')} />
+          <FloatInput
+            error={errors.firstName?.message}
+            label={labels?.firstName || ''}
+            {...register('firstName')}
+          />
+          <FloatInput
+            error={errors.lastName?.message}
+            label={labels?.lastName || ''}
+            {...register('lastName')}
+          />
         </div>
 
         <div
@@ -91,7 +100,12 @@ function ExampleForm() {
             gridTemplateColumns: 1,
           })}
         >
-          <FloatInput label={labels?.email || ''} type="email" {...register('email')} />
+          <FloatInput
+            error={errors.email?.message}
+            label={labels?.email || ''}
+            type="email"
+            {...register('email')}
+          />
         </div>
         <div
           className={css({
@@ -100,30 +114,36 @@ function ExampleForm() {
             gridTemplateColumns: { base: 1, md: 2 },
           })}
         >
-          <FloatInput label={labels?.password || ''} type="password" {...register('password')} />
           <FloatInput
+            error={errors.password?.message}
+            label={labels?.password || ''}
+            type="password"
+            {...register('password')}
+          />
+          <FloatInput
+            error={errors.confirmation?.message}
             label={labels?.passwordConfirmation || ''}
             type="password"
             {...register('confirmation')}
           />
         </div>
 
-        <h4 className={css({ fontWeight: 'semibold', mt: 'sm' })}>{text?.address}</h4>
+        <h4 className={css({ fontWeight: 'semibold', mt: 'xl' })}>{text?.address}</h4>
         <div
-          className={css({ display: 'flex', flexWrap: { base: 'wrap', xl: 'nowrap' }, gap: 'sm' })}
+          className={css({ display: 'flex', flexWrap: { base: 'wrap', md: 'nowrap' }, gap: 'sm' })}
         >
           <div className={css({ w: 'full' })}>
             <FloatInput label={labels?.street || ''} {...register('street')} />
           </div>
-          <div className={css({ w: { base: 'full', xl: 'sm' } })}>
+          <div className={css({ w: { base: 'full', md: 'sm' } })}>
             <FloatInput label={labels?.number || ''} type="number" {...register('number')} />
           </div>
-          <div className={css({ w: { base: 'full', xl: 'sm' } })}>
+          <div className={css({ w: { base: 'full', md: 'sm' } })}>
             <FloatInput label={labels?.postalCode || ''} {...register('postalCode')} />
           </div>
         </div>
 
-        <h4 className={css({ fontWeight: 'semibold', mt: 'sm' })}>{text?.dependents}</h4>
+        <h4 className={css({ fontWeight: 'semibold', mt: 'xl' })}>{text?.dependents}</h4>
         <ul className={css({ display: 'flex', flexDir: 'column', gap: 'md' })}>
           {fields.map((field, dependentIndex) => (
             <li
@@ -145,11 +165,14 @@ function ExampleForm() {
                 })}
               >
                 <FloatInput
+                  error={errors.dependents?.[dependentIndex]?.name?.message}
                   label={labels?.firstName || ''}
                   {...register(`dependents.${dependentIndex}.name`)}
                 />
                 <FloatInput
+                  error={errors.dependents?.[dependentIndex]?.birthDate?.message}
                   label={labels?.birthDate || ''}
+                  type="date"
                   {...register(`dependents.${dependentIndex}.birthDate`)}
                 />
               </div>
@@ -164,13 +187,7 @@ function ExampleForm() {
             </li>
           ))}
 
-          <li
-            className={css({
-              display: 'flex',
-              justifyContent: 'flex-end',
-              w: 'full',
-            })}
-          >
+          <li className={css({ ml: 'auto' })}>
             <Button
               isOutLine
               disabled={fields.length > 4}

@@ -1,3 +1,7 @@
+div.container {
+  width: 100%;
+}
+
 div.container button:hover > span {
   left: calc(100% + 0.5rem);
 }
@@ -12,7 +16,7 @@ div.container button:hover {
   overflow: hidden;
   position: relative;
   transition: filter 180ms, border 200ms;
-  filter: drop-shadow(0 4px 4px #000a);
+  filter: drop-shadow(0 4px 2px #0008);
   border: 1px solid #fff8;
 }
 
